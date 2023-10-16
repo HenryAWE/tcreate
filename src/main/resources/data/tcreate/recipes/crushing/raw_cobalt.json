@@ -1,0 +1,19 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "tconstruct:raw_cobalt"
+    }
+  ],
+  "results": [
+    {
+      "item": "tcreate:crushed_raw_cobalt"
+    },
+    {
+      "item": "create:experience_nugget",
+      "count": 2,
+      "chance": 0.75
+    }
+  ],
+  "processingTime": 400
+}

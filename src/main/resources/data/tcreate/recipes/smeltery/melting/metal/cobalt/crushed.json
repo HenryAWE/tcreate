@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "rate": "metal",
+  "ingredient": {
+    "item": "tcreate:crushed_raw_cobalt"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_cobalt",
+    "amount": 90
+  },
+  "temperature": 950,
+  "time": 48,
+  "byproducts": [
+    {
+      "fluid": "tconstruct:molten_iron",
+      "amount": 90
+    }
+  ]
+}
