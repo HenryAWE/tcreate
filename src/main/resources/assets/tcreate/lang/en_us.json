@@ -1,3 +1,10 @@
 {
-  "item.tcreate.crushed_raw_cobalt": "Crushed Raw Cobalt"
+  "itemGroup.tcreate": "Tinkers' Create",
+
+  "item.tcreate.crushed_raw_cobalt": "Crushed Raw Cobalt",
+
+  "block.tcreate.molten_andesite_alloy_fluid": "Molten Andesite Alloy",
+  "fluid.tcreate.molten_andesite_alloy": "Molten Andesite Alloy",
+  "fluid.tcreate.flowing_molten_andesite_alloy": "Flowing Molten Andesite Alloy",
+  "item.tcreate.molten_andesite_alloy_bucket": "Molten Andesite Alloy Bucket"
 }

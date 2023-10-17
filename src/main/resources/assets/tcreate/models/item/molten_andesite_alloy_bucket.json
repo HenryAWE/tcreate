@@ -1,0 +1,5 @@
+{
+  "parent": "forge:item/bucket_drip",
+  "loader": "forge:bucket",
+  "fluid": "tcreate:molten_andesite_alloy_bucket"
+}

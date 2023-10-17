@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "tag": "forge:stripped_logs"
+  },
+  "cast_consumed": true,
+  "fluid": {
+    "tag": "forge:molten_andesite_alloy",
+    "amount": 90
+  },
+  "result": {
+    "item": "create:andesite_casing"
+  },
+  "cooling_time": 70
+}

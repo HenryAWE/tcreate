@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:piston_extension_pole"
+  },
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 10
+  },
+  "temperature": 420,
+  "time": 16
+}

@@ -17,8 +17,9 @@ public class TCreate {
     public TCreate() {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        LOGGER.info("Registering tcreate items");
-        TCreateAllItems.register(bus);
+        LOGGER.info("Registering Tinkers' Create");
+        TCreateItems.register(bus);
+        TCreateFluids.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

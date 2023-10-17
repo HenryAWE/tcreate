@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:andesite_alloy"
+  },
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 90
+  },
+  "temperature": 420,
+  "time": 47
+}

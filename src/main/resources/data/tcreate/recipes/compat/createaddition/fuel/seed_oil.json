@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:melting_fuel",
+  "fluid": {
+    "name": "createaddition:seed_oil",
+    "amount": 50
+  },
+  "duration": 100,
+  "temperature": 1000,
+  "condition": [
+    {
+      "modid": "createaddition",
+      "type": "forge:mod_loaded"
+    }
+  ]
+}

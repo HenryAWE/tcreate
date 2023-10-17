@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:turntable"
+  },
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 15
+  },
+  "temperature": 420,
+  "time": 9
+}

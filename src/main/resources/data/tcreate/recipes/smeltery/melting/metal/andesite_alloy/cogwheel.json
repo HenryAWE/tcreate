@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": [
+    {
+      "item": "create:cogwheel"
+    },
+    {
+      "item": "create:large_cogwheel"
+    }
+  ],
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 15
+  },
+  "temperature": 420,
+  "time": 9
+}

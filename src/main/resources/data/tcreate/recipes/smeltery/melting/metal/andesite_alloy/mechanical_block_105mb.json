@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": [
+    {
+      "item": "create:clutch"
+    },
+    {
+      "item": "create:gearshift"
+    },
+    {
+      "item": "create:mechanical_bearing"
+    }
+  ],
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 105
+  },
+  "temperature": 420,
+  "time": 70
+}

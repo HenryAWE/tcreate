@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:brass_casing"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_brass",
+    "amount": 90
+  },
+  "temperature": 605,
+  "time": 80
+}

@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": [
+    {
+      "item": "create:gearbox"
+    },
+    {
+      "item": "create:vertical_gearbox"
+    }
+  ],
+  "result": {
+    "fluid": "tcreate:molten_andesite_alloy",
+    "amount": 150
+  },
+  "temperature": 420,
+  "time": 70
+}

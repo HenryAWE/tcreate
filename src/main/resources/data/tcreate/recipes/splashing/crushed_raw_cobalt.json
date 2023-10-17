@@ -1,0 +1,14 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "tcreate:crushed_raw_cobalt"
+    }
+  ],
+  "results": [
+    {
+      "item": "tconstruct:cobalt_nugget",
+      "count": 9
+    }
+  ]
+}

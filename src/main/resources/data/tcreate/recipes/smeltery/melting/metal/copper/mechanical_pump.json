@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:mechanical_pump"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_copper",
+    "amount": 60
+  },
+  "temperature": 500,
+  "time": 50,
+  "byproducts": [
+    {
+      "fluid": "tcreate:molten_andesite_alloy",
+      "amount": 15
+    }
+  ]
+}
