@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tconstruct:earth_cake",
+    "tconstruct:sky_cake",
+    "tconstruct:blood_cake",
+    "tconstruct:magma_cake",
+    "tconstruct:ender_cake"
+  ]
+}
