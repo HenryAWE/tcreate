@@ -1,5 +1,5 @@
 {
-  "type": "create_frozen_industry:frozen",
+  "type": "tcreate:freezing",
   "ingredients": [
     {
       "item": "minecraft:ice"

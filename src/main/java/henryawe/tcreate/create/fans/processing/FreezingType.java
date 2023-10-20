@@ -14,7 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -25,10 +25,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class FreezingType implements FanProcessingType, PatternMatcher<BlockState> {
+import static slimeknights.tconstruct.fluids.TinkerFluids.skySlime;
+
+public class FreezingType implements FanProcessingType, PatternMatcher<FluidState> {
     static final FreezingRecipe.Wrapper WRAPPER = new FreezingRecipe.Wrapper();
 
-    private final Collection<TCreatePattern<BlockState>> patterns = new ArrayDeque<>();
+    private final Collection<TCreatePattern<FluidState>> patterns = new ArrayDeque<>();
 
     public FreezingType () {
         // TODO: add patterns to the function defaultPattern
@@ -37,8 +39,8 @@ public class FreezingType implements FanProcessingType, PatternMatcher<BlockStat
 
     @Override
     public boolean isValidAt (Level level, BlockPos pos) {
-        final var block = level.getBlockState(pos);
-        return matches(block);
+        final var fluid = level.getFluidState(pos);
+        return matches(fluid);
     }
 
     @Override
@@ -92,7 +94,7 @@ public class FreezingType implements FanProcessingType, PatternMatcher<BlockStat
 
     @Override
     @NotNull
-    public Stream<? extends TCreatePattern<BlockState>> patterns () {
+    public Stream<? extends TCreatePattern<FluidState>> patterns () {
         synchronized (patterns) {
             return patterns.stream();
         }
@@ -100,14 +102,14 @@ public class FreezingType implements FanProcessingType, PatternMatcher<BlockStat
 
 
     @NotNull
-    public PatternMatcher<BlockState> register (@NotNull TCreatePattern<BlockState> pattern) {
+    public PatternMatcher<FluidState> register (@NotNull TCreatePattern<FluidState> pattern) {
         synchronized (patterns) {
             patterns.add(pattern);
         }
         return this;
     }
 
-    private static boolean defaultPattern (BlockState state) {
-        return false;
+    private static boolean defaultPattern (FluidState state) {
+        return state.is(skySlime.getForgeTag());
     }
 }
