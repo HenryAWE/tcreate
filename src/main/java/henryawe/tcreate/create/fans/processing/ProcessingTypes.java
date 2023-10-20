@@ -8,7 +8,7 @@ public final class ProcessingTypes {
     private ProcessingTypes() {
     }
 
-    public static final FreezingType FROZEN = register("frozen", new FreezingType());
+    public static final FreezingType FREEZING = register("frozen", new FreezingType());
 
     @SuppressWarnings("SameParameterValue")
     private static <T extends FanProcessingType> T register(String id, T type) {

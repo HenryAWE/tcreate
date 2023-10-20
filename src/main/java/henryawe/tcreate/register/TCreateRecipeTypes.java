@@ -76,11 +76,11 @@ public enum TCreateRecipeTypes implements IRecipeTypeInfo {
                 .getRecipeFor(getType(), inv, worldIn);
     }
 
-    public static void clinit(IEventBus bus) {
+    public static void clinit (IEventBus bus) {
         Registers.SERIALIZER_REGISTER.register(bus);
         Registers.TYPE_REGISTER.register(bus);
         // debug
-        LOGGER.debug("");
+        LOGGER.debug("Test type registration state: {}", FREEZING.typeObject);
     }
 
     static class Registers {
