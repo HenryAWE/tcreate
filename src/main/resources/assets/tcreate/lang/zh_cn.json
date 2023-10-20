@@ -1,4 +1,6 @@
 {
+  "advancement.tcreate.frozen_industry_setup": "",
+  "advancement.tcreate.frozen_industry_setup.desc": "",
   "itemGroup.tcreate": "工匠动力",
 
   "item.tcreate.crushed_raw_cobalt": "粉碎钴矿石",

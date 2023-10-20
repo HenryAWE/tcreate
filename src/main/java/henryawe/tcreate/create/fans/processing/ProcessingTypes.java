@@ -4,7 +4,10 @@ import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingTypeRegistry;
 import henryawe.tcreate.SharedSecrets;
 
-public class ProcessingTypes {
+public final class ProcessingTypes {
+    private ProcessingTypes() {
+    }
+
     public static final FreezingType FROZEN = register("frozen", new FreezingType());
 
     @SuppressWarnings("SameParameterValue")

@@ -1,4 +1,4 @@
-package henryawe.tcreate;
+package henryawe.tcreate.register;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;

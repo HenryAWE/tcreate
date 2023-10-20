@@ -1,7 +1,8 @@
-package henryawe.tcreate;
+package henryawe.tcreate.register;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import henryawe.tcreate.TCreate;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 
