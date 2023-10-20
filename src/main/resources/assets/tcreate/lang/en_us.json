@@ -1,4 +1,7 @@
 {
+  "advancement.tcreate.frozen_industry_setup": "",
+  "advancement.tcreate.frozen_industry_setup.desc": "",
+
   "itemGroup.tcreate": "Tinkers' Create",
 
   "item.tcreate.crushed_raw_cobalt": "Crushed Raw Cobalt",

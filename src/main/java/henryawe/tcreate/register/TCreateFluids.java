@@ -1,5 +1,6 @@
-package henryawe.tcreate;
+package henryawe.tcreate.register;
 
+import henryawe.tcreate.TCreate;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;

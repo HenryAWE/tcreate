@@ -1,5 +1,6 @@
-package henryawe.tcreate;
+package henryawe.tcreate.register;
 
+import henryawe.tcreate.TCreate;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;

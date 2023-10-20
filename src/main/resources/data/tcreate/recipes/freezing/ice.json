@@ -1,0 +1,13 @@
+{
+  "type": "tcreate:freezing",
+  "ingredients": [
+    {
+      "item": "minecraft:ice"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:packed_ice"
+    }
+  ]
+}
