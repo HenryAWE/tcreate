@@ -17,7 +17,6 @@ public interface PatternMatcher<MatchType> {
     @NotNull
     PatternMatcher<MatchType> register (@NotNull TCreatePattern<MatchType> pattern);
 
-
     default boolean matches (MatchType any) {
         return patterns().anyMatch((it) -> it.matches(any));
     }
