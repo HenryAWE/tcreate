@@ -1,6 +1,5 @@
 package henryawe.tcreate.create.fans.processing;
 
-import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
 import henryawe.tcreate.pattern.PatternMatcher;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
@@ -31,8 +29,6 @@ import static slimeknights.tconstruct.fluids.TinkerFluids.skySlime;
 
 public class FreezingType implements FanProcessingType, PatternMatcher<FluidState> {
     static final FreezingRecipe.Wrapper WRAPPER = new FreezingRecipe.Wrapper();
-
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     private final Collection<TCreatePattern<FluidState>> patterns = new ArrayDeque<>();
 

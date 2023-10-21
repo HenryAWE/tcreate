@@ -2,6 +2,7 @@ package henryawe.tcreate;
 
 import com.mojang.logging.LogUtils;
 import henryawe.tcreate.create.fans.processing.ProcessingTypes;
+import henryawe.tcreate.register.TCreateEffects;
 import henryawe.tcreate.register.TCreateFluids;
 import henryawe.tcreate.register.TCreateItems;
 import henryawe.tcreate.register.TCreateRecipeTypes;
@@ -37,6 +38,7 @@ public final class TCreate {
         TCreateFluids.register(bus);
         TCreateRecipeTypes.clinit(bus);
         ProcessingTypes.clinit();
+        TCreateEffects.clinit(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Finish Register TCreate.");
