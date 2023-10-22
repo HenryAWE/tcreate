@@ -16,7 +16,7 @@ public abstract class BaseEffect extends MobEffect {
 
     abstract void initMethod ();
 
-    abstract boolean isEffectTick(int duration, int amplifier);
+    abstract boolean isEffectTick(int tick, int amplifier);
 
     abstract void applyEffect(@NotNull LivingEntity entity, int amplifier);
 
