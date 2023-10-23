@@ -8,7 +8,7 @@ public final class ProcessingTypes {
     private ProcessingTypes() {
     }
 
-    public static final FreezingType FREEZING = register("frozen", new FreezingType());
+    public static final SkySlimeType SKY_SLIME_TYPE = register("skyslime", new SkySlimeType());
 
     @SuppressWarnings("SameParameterValue")
     private static <T extends FanProcessingType> T register(String id, T type) {

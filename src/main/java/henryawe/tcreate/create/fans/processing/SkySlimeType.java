@@ -2,11 +2,12 @@ package henryawe.tcreate.create.fans.processing;
 
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
+import henryawe.tcreate.TCreate;
 import henryawe.tcreate.TCreateTasks;
 import henryawe.tcreate.pattern.PatternMatcher;
 import henryawe.tcreate.pattern.TCreatePattern;
 import henryawe.tcreate.register.TCreateRecipeTypes;
-import henryawe.tcreate.create.fans.recipes.FreezingRecipe;
+import henryawe.tcreate.create.fans.recipes.SkySlimeRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -30,14 +31,16 @@ import java.util.stream.Stream;
 import static net.minecraft.world.entity.EntityType.STRAY;
 import static slimeknights.tconstruct.fluids.TinkerFluids.skySlime;
 
-public class FreezingType implements FanProcessingType, PatternMatcher<FluidState> {
-    static final FreezingRecipe.Wrapper WRAPPER = new FreezingRecipe.Wrapper();
+public class SkySlimeType implements FanProcessingType, PatternMatcher<FluidState> {
+    static final SkySlimeRecipe.Wrapper WRAPPER = new SkySlimeRecipe.Wrapper();
+
+    public static final String CONVERT_FROM_SKYSLIME_TAG = "TCreate_from_skyslime_type";
 
     private final Collection<TCreatePattern<FluidState>> patterns = new ArrayDeque<>();
 
-    public FreezingType () {
+    public SkySlimeType () {
         // TODO: add patterns to the function defaultPattern
-        register(FreezingType::defaultPattern);
+        register(SkySlimeType::defaultPattern);
     }
 
     @Override
@@ -54,7 +57,7 @@ public class FreezingType implements FanProcessingType, PatternMatcher<FluidStat
     @Override
     public boolean canProcess (ItemStack stack, Level level) {
         WRAPPER.setItem(0, stack);
-        final var optional = TCreateRecipeTypes.FREEZING.filiter(WRAPPER, level);
+        final var optional = TCreateRecipeTypes.SKYSLIME_PROCESSING.filiter(WRAPPER, level);
         return optional.isPresent();
     }
 
@@ -62,7 +65,7 @@ public class FreezingType implements FanProcessingType, PatternMatcher<FluidStat
     @Nullable
     public List<ItemStack> process (ItemStack stack, Level level) {
         WRAPPER.setItem(0, stack);
-        final var optional = TCreateRecipeTypes.FREEZING.filiter(WRAPPER, level);
+        final var optional = TCreateRecipeTypes.SKYSLIME_PROCESSING.filiter(WRAPPER, level);
         return optional.map(wrapperRecipe -> RecipeApplier.applyRecipeOn(stack, wrapperRecipe)).orElse(null);
     }
 
@@ -89,10 +92,9 @@ public class FreezingType implements FanProcessingType, PatternMatcher<FluidStat
         if (!entity.isAlive())
             return;
         if (entity instanceof LivingEntity le) {
-            if (!le.getPersistentData().getBoolean("TCreate_from_freezing_type")) {
-                le.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1));
-                le.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 20, 1));
-                le.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
+            if (!TCreate.getBoolean(le, CONVERT_FROM_SKYSLIME_TAG)) {
+                le.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 2));
+                //le.addEffect(new MobEffectInstance(TCreateEffects.FREEZING.get(), 20, 0));
             }
 
             if (le instanceof Skeleton skeleton) {
@@ -102,7 +104,7 @@ public class FreezingType implements FanProcessingType, PatternMatcher<FluidStat
                         STRAY,
                         true,
                         (stray) ->
-                            stray.getPersistentData().putBoolean("TCreate_from_freezing_type", true)
+                                TCreate.putBoolean(stray, CONVERT_FROM_SKYSLIME_TAG)
                 );
             }
         }

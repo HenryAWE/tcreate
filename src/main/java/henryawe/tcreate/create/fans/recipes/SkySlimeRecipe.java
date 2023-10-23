@@ -8,10 +8,10 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
-public class FreezingRecipe extends ProcessingRecipe<FreezingRecipe.Wrapper> {
+public class SkySlimeRecipe extends ProcessingRecipe<SkySlimeRecipe.Wrapper> {
 
-    public FreezingRecipe (ProcessingRecipeBuilder.ProcessingRecipeParams params) {
-        super(TCreateRecipeTypes.FREEZING, params);
+    public SkySlimeRecipe (ProcessingRecipeBuilder.ProcessingRecipeParams params) {
+        super(TCreateRecipeTypes.SKYSLIME_PROCESSING, params);
     }
 
     @Override

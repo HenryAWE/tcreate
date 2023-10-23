@@ -20,6 +20,8 @@ public abstract class BaseEffect extends MobEffect {
 
     abstract void applyEffect(@NotNull LivingEntity entity, int amplifier);
 
+    abstract boolean filiter(@NotNull LivingEntity entity, int amplifier);
+
     @Override
     public boolean isDurationEffectTick (int duration, int amplifier) {
         return isEffectTick(duration, amplifier);
@@ -27,6 +29,12 @@ public abstract class BaseEffect extends MobEffect {
 
     @Override
     public void applyEffectTick (@NotNull LivingEntity entity, int amplifier) {
-        applyEffect(entity, amplifier);
+        if (filiter(entity, amplifier))
+            applyEffect(entity, amplifier);
+    }
+
+    @FunctionalInterface
+    public interface EntityFiliter {
+        boolean filiter(@NotNull LivingEntity entity, int amplifier);
     }
 }
