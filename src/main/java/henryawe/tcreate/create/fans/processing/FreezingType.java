@@ -1,8 +1,8 @@
 package henryawe.tcreate.create.fans.processing;
 
-import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
 import com.simibubi.create.foundation.recipe.RecipeApplier;
+import henryawe.tcreate.TCreateTasks;
 import henryawe.tcreate.pattern.PatternMatcher;
 import henryawe.tcreate.pattern.TCreatePattern;
 import henryawe.tcreate.register.TCreateRecipeTypes;
@@ -13,13 +13,13 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
@@ -27,12 +27,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
+import static net.minecraft.world.entity.EntityType.STRAY;
 import static slimeknights.tconstruct.fluids.TinkerFluids.skySlime;
 
 public class FreezingType implements FanProcessingType, PatternMatcher<FluidState> {
     static final FreezingRecipe.Wrapper WRAPPER = new FreezingRecipe.Wrapper();
-
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     private final Collection<TCreatePattern<FluidState>> patterns = new ArrayDeque<>();
 
@@ -90,9 +89,22 @@ public class FreezingType implements FanProcessingType, PatternMatcher<FluidStat
         if (!entity.isAlive())
             return;
         if (entity instanceof LivingEntity le) {
-            le.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1));
-            le.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 20, 1));
-            le.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
+            if (!le.getPersistentData().getBoolean("TCreate_from_freezing_type")) {
+                le.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1));
+                le.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 20, 1));
+                le.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1));
+            }
+
+            if (le instanceof Skeleton skeleton) {
+                TCreateTasks.mobConvertTask(
+                        20 * 5,
+                        skeleton,
+                        STRAY,
+                        true,
+                        (stray) ->
+                            stray.getPersistentData().putBoolean("TCreate_from_freezing_type", true)
+                );
+            }
         }
     }
 
