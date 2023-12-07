@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
-import henryawe.tcreate.create.fans.recipes.FreezingRecipe;
+import henryawe.tcreate.create.fans.recipes.SkySlimeRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -27,7 +27,7 @@ import static henryawe.tcreate.SharedSecrets.asResource;
 import static henryawe.tcreate.TCreate.MODID;
 
 public enum TCreateRecipeTypes implements IRecipeTypeInfo {
-    FREEZING(FreezingRecipe::new);
+    SKYSLIME_PROCESSING(SkySlimeRecipe::new);
 
     TCreateRecipeTypes (Supplier<RecipeSerializer<?>> serializerObject) {
         String name = name().toLowerCase(Locale.ROOT);
@@ -80,7 +80,7 @@ public enum TCreateRecipeTypes implements IRecipeTypeInfo {
         Registers.SERIALIZER_REGISTER.register(bus);
         Registers.TYPE_REGISTER.register(bus);
         // debug
-        LOGGER.debug("Test type registration state: {}", FREEZING.typeObject);
+        LOGGER.debug("Test type registration state: {}", SKYSLIME_PROCESSING.typeObject);
     }
 
     static class Registers {
