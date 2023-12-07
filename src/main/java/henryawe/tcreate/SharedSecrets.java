@@ -1,14 +1,11 @@
 package henryawe.tcreate;
 
-import henryawe.tcreate.create.fans.processing.SkySlimeType;
+import henryawe.tcreate.create.fans.processing.FreezingType;
 import henryawe.tcreate.create.fans.processing.ProcessingTypes;
-import henryawe.tcreate.create.fans.recipes.SkySlimeRecipe;
+import henryawe.tcreate.create.fans.recipes.FreezingRecipe;
 import henryawe.tcreate.effect.BaseEffect;
-import henryawe.tcreate.effect.ColdEffect;
-import henryawe.tcreate.register.TCreateFluids;
-import henryawe.tcreate.register.TCreateItems;
-import henryawe.tcreate.register.TCreateRecipeTypes;
-import henryawe.tcreate.register.TCreateTabs;
+import henryawe.tcreate.effect.FreezingEffect;
+import henryawe.tcreate.register.*;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +21,7 @@ import static henryawe.tcreate.TCreate.MODID;
  * @author KKoishi_
  */
 public final class SharedSecrets {
-    private SharedSecrets () {
+    private SharedSecrets() {
     }
 
     private static final StackWalker STACK_WALKER = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE);
@@ -36,14 +33,15 @@ public final class SharedSecrets {
             TCreateItems.class,
             TCreateTabs.class,
             TCreateRecipeTypes.class,
+            TCreatePotatoCannonProjectileTypes.class,
             ProcessingTypes.class,
-            SkySlimeType.class,
-            SkySlimeRecipe.class,
+            FreezingType.class,
+            FreezingRecipe.class,
             BaseEffect.class,
-            ColdEffect.class
+            FreezingEffect.class
     ));
 
-    public static ResourceLocation asResource (String name) {
+    public static ResourceLocation asResource(String name) {
         final var caller = STACK_WALKER.getCallerClass();
         if (!PERMITTED_CLASSES.contains(caller))
             throw new SecurityException("Caller " + caller + " is not permitted to access SharedSecrets.");
@@ -54,10 +52,11 @@ public final class SharedSecrets {
      * Convert the color to int.
      * <p/>
      * result = r << 16 | g << 8 | b
+     *
      * @param color the color.
      * @return int represents the color.
      */
-    public static int getColor (@NotNull Color color) {
+    public static int getColor(@NotNull Color color) {
         final var caller = STACK_WALKER.getCallerClass();
         if (!PERMITTED_CLASSES.contains(caller))
             throw new SecurityException("Caller " + caller + " is not permitted to access SharedSecrets.");

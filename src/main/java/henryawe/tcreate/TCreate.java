@@ -2,11 +2,7 @@ package henryawe.tcreate;
 
 import com.mojang.logging.LogUtils;
 import henryawe.tcreate.create.fans.processing.ProcessingTypes;
-import henryawe.tcreate.register.TCreateEffects;
-import henryawe.tcreate.register.TCreateFluids;
-import henryawe.tcreate.register.TCreateItems;
-import henryawe.tcreate.register.TCreateRecipeTypes;
-import net.minecraft.world.entity.LivingEntity;
+import henryawe.tcreate.register.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -31,7 +27,7 @@ public final class TCreate {
      */
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public TCreate () {
+    public TCreate() {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         LOGGER.info("Registering Tinkers' Create");
@@ -40,20 +36,9 @@ public final class TCreate {
         TCreateRecipeTypes.clinit(bus);
         ProcessingTypes.clinit();
         TCreateEffects.clinit(bus);
+        TCreatePotatoCannonProjectileTypes.clinit();
 
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Finish Register TCreate.");
-    }
-
-    public static void putBoolean (LivingEntity entity, String tagName) {
-        putBoolean(entity, tagName, true);
-    }
-
-    public static void putBoolean (LivingEntity entity, String tagName, boolean bool) {
-        entity.getPersistentData().putBoolean(tagName, bool);
-    }
-
-    public static boolean getBoolean(LivingEntity entity, String tagName) {
-        return entity.getPersistentData().getBoolean(tagName);
     }
 }
