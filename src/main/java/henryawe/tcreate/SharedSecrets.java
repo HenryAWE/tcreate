@@ -1,10 +1,10 @@
 package henryawe.tcreate;
 
-import henryawe.tcreate.create.fans.processing.FreezingType;
 import henryawe.tcreate.create.fans.processing.ProcessingTypes;
-import henryawe.tcreate.create.fans.recipes.FreezingRecipe;
+import henryawe.tcreate.create.fans.processing.SkySlimeType;
+import henryawe.tcreate.create.fans.recipes.SkySlimeRecipe;
 import henryawe.tcreate.effect.BaseEffect;
-import henryawe.tcreate.effect.FreezingEffect;
+import henryawe.tcreate.effect.ColdEffect;
 import henryawe.tcreate.register.*;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
@@ -35,10 +35,10 @@ public final class SharedSecrets {
             TCreateRecipeTypes.class,
             TCreatePotatoCannonProjectileTypes.class,
             ProcessingTypes.class,
-            FreezingType.class,
-            FreezingRecipe.class,
+            SkySlimeType.class,
+            SkySlimeRecipe.class,
             BaseEffect.class,
-            FreezingEffect.class
+            ColdEffect.class
     ));
 
     public static ResourceLocation asResource(String name) {

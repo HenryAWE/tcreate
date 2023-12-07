@@ -3,10 +3,12 @@ package henryawe.tcreate;
 import com.mojang.logging.LogUtils;
 import henryawe.tcreate.create.fans.processing.ProcessingTypes;
 import henryawe.tcreate.register.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 /**
@@ -40,5 +42,13 @@ public final class TCreate {
 
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Finish Register TCreate.");
+    }
+
+    public static boolean getBoolean(@NotNull LivingEntity le, String tag) {
+        return le.getPersistentData().getBoolean(tag);
+    }
+
+    public static void putBoolean(@NotNull LivingEntity le, String tag) {
+        le.getPersistentData().getBoolean(tag);
     }
 }
